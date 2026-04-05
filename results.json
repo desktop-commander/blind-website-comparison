@@ -1,0 +1,157 @@
+{
+  "metadata": {
+    "created": "2026-04-05",
+    "purpose": "Blind website comparison for seed-stage startups",
+    "models_used": ["claude-opus-4.6", "gpt-4o"],
+    "total_sites": 9,
+    "total_comparisons": 36
+  },
+  "sites": {
+    "desktopcommander": {
+      "url": "https://desktopcommander.app/",
+      "company": "Desktop Commander",
+      "funding": "$3M (raising)",
+      "investors": "TBD",
+      "sector": "AI/Dev Tools (MCP Server)",
+      "founded": "2025",
+      "hq": "Riga, Latvia",
+      "screenshots": {
+        "full_page": "screenshots/desktopcommander/full-page.png",
+        "hero": "screenshots/desktopcommander/hero.png"
+      },
+      "scores": {
+        "claude": {
+          "first_impression": 6,
+          "visual_hierarchy": 7,
+          "trust_signals": 5,
+          "design_polish": 5,
+          "cta_clarity": 6,
+          "investor_signal": 5,
+          "average": 5.7
+        },
+        "gpt4o": null,
+        "average": 5.7
+      },
+      "critique": {
+        "works_well": "The hero headline 'AI that executes' is punchy and the value prop subtitle is clear and specific. The traction metrics (26k+ weekly downloads, 5.4k GitHub stars) are genuine differentiators that belong front-and-center — many developer tools at this stage have nothing comparable, and showing them signals real organic adoption. The product UI mockup grounds the offering in reality rather than vaporware.",
+        "looks_weak": "The full-page screenshot reveals a massive dark void consuming roughly 60–70% of the scroll — a JavaScript-rendered section (likely a video or interactive demo) that failed to load, making the page look broken or unfinished to any investor who screenshots it for async review. The Cookiebot banner dominates the first viewport and kills the designed hero experience before the user even reads the CTA. Below the fold, there is zero social proof — no customer logos, no press mentions, no testimonials — meaning the trust picture collapses after the metrics strip.",
+        "single_biggest_improvement": "Fix the broken/unrendered mid-page section (likely a video background or JS animation) — a page that appears half-empty on first scroll is the single largest trust-destroying element and would cause many investors to bounce before reading anything.",
+        "meeting_score": 5,
+        "one_word_vibe": "Incomplete",
+        "evaluated_from": "hero + full-page screenshots"
+      },
+      "head_to_head_wins": 0,
+      "head_to_head_losses": 0
+    },
+    "aivar": {
+      "url": "https://aivar.tech/",
+      "company": "Aivar Innovations",
+      "funding": "$4.6M seed",
+      "investors": "Sorin Investments, Bessemer Venture Partners",
+      "sector": "AI Services",
+      "founded": "2024",
+      "hq": "Coimbatore, India",
+      "scores": { "claude": null, "gpt4o": null, "average": null },
+      "critique": null,
+      "head_to_head_wins": 0,
+      "head_to_head_losses": 0
+    },
+    "kilo": {
+      "url": "https://kilo.ai/",
+      "company": "Kilo Code",
+      "funding": "$8M seed",
+      "investors": "Cota Capital, General Catalyst, Breakers, Quiet Capital",
+      "sector": "AI Coding Agent",
+      "founded": "2025",
+      "hq": "San Francisco, CA",
+      "scores": { "claude": null, "gpt4o": null, "average": null },
+      "critique": null,
+      "head_to_head_wins": 0,
+      "head_to_head_losses": 0
+    },
+    "sycamore": {
+      "url": "https://sycamore.so/",
+      "company": "Sycamore Labs",
+      "funding": "$65M seed",
+      "investors": "Coatue, Lightspeed, Dell Technologies Capital, 8VC",
+      "sector": "Enterprise AI Agent OS",
+      "founded": "2025",
+      "hq": "Palo Alto, CA",
+      "scores": { "claude": null, "gpt4o": null, "average": null },
+      "critique": null,
+      "head_to_head_wins": 0,
+      "head_to_head_losses": 0
+    },
+    "applied-atomics": {
+      "url": "https://www.applied-atomics.com/",
+      "company": "Applied Atomics",
+      "funding": "$8.3M seed ($12M total)",
+      "investors": "Transition VC, Alpaca VC",
+      "sector": "Nuclear Energy",
+      "founded": "2025",
+      "hq": "Los Angeles, CA / Anchorage, AK",
+      "scores": { "claude": null, "gpt4o": null, "average": null },
+      "critique": null,
+      "head_to_head_wins": 0,
+      "head_to_head_losses": 0
+    },
+    "agentmail": {
+      "url": "https://www.agentmail.to/",
+      "company": "AgentMail",
+      "funding": "$6M seed",
+      "investors": "General Catalyst, Y Combinator, Paul Graham, Dharmesh Shah",
+      "sector": "AI Agent Infrastructure",
+      "founded": "2025",
+      "hq": "San Francisco, CA",
+      "scores": { "claude": null, "gpt4o": null, "average": null },
+      "critique": null,
+      "head_to_head_wins": 0,
+      "head_to_head_losses": 0
+    },
+    "amilabs": {
+      "url": "https://amilabs.xyz/",
+      "company": "AMI Labs (Yann LeCun)",
+      "funding": "$1.03B seed",
+      "investors": "Cathay Innovation, Bezos Expeditions, NVIDIA, Lightspeed",
+      "sector": "World Models / AI Research",
+      "founded": "2025",
+      "hq": "Paris, France",
+      "scores": { "claude": null, "gpt4o": null, "average": null },
+      "critique": null,
+      "head_to_head_wins": 0,
+      "head_to_head_losses": 0
+    },
+    "rodeo": {
+      "url": "https://rodeorodeorodeo.com/",
+      "company": "Rodeo",
+      "funding": "$8.5M seed",
+      "investors": "359 Capital, BAM Ventures, Calm Ventures, F7 Ventures",
+      "sector": "Social Platform",
+      "founded": "2023",
+      "hq": "New York, NY",
+      "scores": { "claude": null, "gpt4o": null, "average": null },
+      "critique": null,
+      "head_to_head_wins": 0,
+      "head_to_head_losses": 0
+    },
+    "rowspace": {
+      "url": "https://www.rowspace.ai/",
+      "company": "Rowspace",
+      "funding": "$50M (seed + Series A)",
+      "investors": "Sequoia, Emergence Capital, Stripe, Conviction",
+      "sector": "AI for Finance",
+      "founded": "2025",
+      "hq": "San Francisco, CA",
+      "scores": { "claude": null, "gpt4o": null, "average": null },
+      "critique": null,
+      "head_to_head_wins": 0,
+      "head_to_head_losses": 0
+    }
+  },
+  "comparisons": [],
+  "rankings": {
+    "by_design_score": [],
+    "by_head_to_head": [],
+    "correlation_design_vs_funding": null
+  }
+}

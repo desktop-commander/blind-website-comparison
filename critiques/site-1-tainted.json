@@ -1,0 +1,19 @@
+{
+  "scores": {
+    "first_impression": 6,
+    "visual_hierarchy": 7,
+    "trust_signals": 5,
+    "design_polish": 5,
+    "cta_clarity": 6,
+    "investor_signal": 5
+  },
+  "average_score": 5.7,
+  "critique": {
+    "works_well": "The hero headline 'AI that executes' is punchy and the value prop subtitle is clear and specific. The traction metrics (26k+ weekly downloads, 5.4k GitHub stars) are genuine differentiators that belong front-and-center — many developer tools at this stage have nothing comparable, and showing them signals real organic adoption. The product UI mockup grounds the offering in reality rather than vaporware.",
+    "looks_weak": "The full-page screenshot reveals a massive dark void consuming roughly 60–70% of the scroll — a JavaScript-rendered section (likely a video or interactive demo) that failed to load, making the page look broken or unfinished to any investor who screenshots it for async review. The Cookiebot banner dominates the first viewport and kills the designed hero experience before the user even reads the CTA. Below the fold, there is zero social proof — no customer logos, no press mentions, no testimonials — meaning the trust picture collapses after the metrics strip.",
+    "single_biggest_improvement": "Fix the broken/unrendered mid-page section (likely a video background or JS animation) — a page that appears half-empty on first scroll is the single largest trust-destroying element and would cause many investors to bounce before reading anything."
+  },
+  "meeting_score": 5,
+  "one_word_vibe": "Incomplete",
+  "_note": "TAINTED - agent evaluated broken headless Puppeteer screenshot with missing video/JS section. Needs re-evaluation with properly rendered screenshot."
+}

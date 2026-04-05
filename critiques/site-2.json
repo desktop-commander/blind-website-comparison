@@ -1,0 +1,18 @@
+{
+  "scores": {
+    "first_impression": 6,
+    "visual_hierarchy": 5,
+    "trust_signals": 7,
+    "design_polish": 5,
+    "cta_clarity": 6,
+    "investor_signal": 5
+  },
+  "average_score": 5.7,
+  "critique": {
+    "works_well": "The trust signal section below the fold is actually solid — real customer logos (Niyo, Karix, Zepic, Amnic, reva.ai) plus three named testimonials with photos and company logos from recognizable names. The team section with actual founder photos and clear role titles (CEO & Tech, Growth/Strategy/Ops, etc.) adds credibility and shows this is a real company with real people. The footer signals global presence (India HQ, US, Singapore, Dubai) which for an AI services firm shows scale.",
+    "looks_weak": "The hero section has a massive rendering problem: the content is crammed into the top ~15% of the viewport and then there's an enormous black void taking up the rest of the top half — this looks like a broken animation or parallax section that didn't load correctly in the screenshot, but any user landing on this page will see a broken experience before the good stuff. The overall design language is extremely generic 'AI agency dark mode' — it could be any of a thousand similar firms, with no distinct visual identity or differentiation signal. The middle sections (services, solutions) appear to be mostly black/empty in the screenshot, suggesting sparse content density or heavy animation-dependent reveals that don't work statically.",
+    "single_biggest_improvement": "Fix the hero viewport — the giant black void after the hero content makes it look broken; compress the spacing so customers immediately see the logo bar and testimonials without scrolling through empty blackness."
+  },
+  "meeting_score": 5,
+  "one_word_vibe": "Consulting"
+}

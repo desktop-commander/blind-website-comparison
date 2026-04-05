@@ -1,0 +1,18 @@
+{
+  "scores": {
+    "first_impression": 8,
+    "visual_hierarchy": 7,
+    "trust_signals": 7,
+    "design_polish": 8,
+    "cta_clarity": 6,
+    "investor_signal": 7
+  },
+  "average_score": 7.2,
+  "critique": {
+    "works_well": "The full page reveals a genuinely premium deep-tech site — the dark theme with high-quality 3D product renders, technical diagrams, and consistent visual language communicates serious engineering credibility. The below-fold sections add important context: technical specs, use-case applications, and what appears to be team/advisory signals that strengthen the overall impression. The overall design system is cohesive — typography, color palette, and spacing are consistent throughout, which reads as 'these founders care about craft and presentation' — a strong proxy signal for execution quality.",
+    "looks_weak": "The hero section, while visually striking, still doesn't immediately tell you what the company does — the value prop requires reading and processing, which is risky for the 5-second VC scan. The page is quite long and information-dense without strong visual breaks or progressive disclosure; it reads more like a technical brochure than a conversion-optimized landing page. The CTA strategy across the full page is unclear — there's no single dominant action the visitor is being funneled toward, which dilutes conversion intent.",
+    "single_biggest_improvement": "Add a bold, plain-English one-liner in the hero ('We build X that does Y for Z') and a single high-contrast CTA button that follows the user down the page — this would transform it from a beautiful brochure into a conversion machine."
+  },
+  "meeting_score": 7,
+  "one_word_vibe": "Premium"
+}

@@ -1,0 +1,18 @@
+{
+  "scores": {
+    "first_impression": 8,
+    "visual_hierarchy": 9,
+    "trust_signals": 7,
+    "design_polish": 9,
+    "cta_clarity": 8,
+    "investor_signal": 8
+  },
+  "average_score": 8.2,
+  "critique": {
+    "works_well": "The full page demonstrates genuine product depth — feature sections, clear pricing, and UI previews all signal a real product with a real team behind it. Design consistency holds across the entire scroll, which is rare and impressive at seed stage. The information architecture follows a logical investor/user narrative: problem → solution → features → proof → price.",
+    "looks_weak": "Trust signals (logos, testimonials, metrics) are the weakest element even across the full page — if they exist, they are not prominent enough to register quickly. The pricing section, while confident, may be premature to expose this high in the funnel for a B2B sales-assisted motion. Some sections feel slightly template-adjacent in layout despite strong overall visual execution.",
+    "single_biggest_improvement": "Add a 'trusted by X teams at Y and Z' social proof band with real recognizable company logos — it is the only thing separating this from a 9/10 site."
+  },
+  "meeting_score": 8,
+  "one_word_vibe": "Polished"
+}

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seed-Stage Website Comparison — Does Website Polish Matter for Fundraising?</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0c0c0f;
+  --surface: #16161a;
+  --surface2: #1e1e24;
+  --border: #2a2a32;
+  --text: #e8e6e3;
+  --text-dim: #8a8a8e;
+  --accent: #5eead4;
+  --accent2: #f472b6;
+  --win: #4ade80;
+  --loss: #f87171;
+  --draw: #fbbf24;
+  --font: 'DM Sans', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+</style>
+</head>
+<body>
+<style>
+body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+h2 { font-size: 1.6rem; font-weight: 600; margin: 3rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.75rem; color: var(--accent); }
+p, li { color: var(--text-dim); font-size: 0.95rem; }
+p { margin-bottom: 0.75rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.subtitle { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; font-family: var(--mono); font-weight: 600; }
+.tag-win { background: rgba(74,222,128,0.15); color: var(--win); }
+.tag-loss { background: rgba(248,113,113,0.15); color: var(--loss); }
+.tag-draw { background: rgba(251,191,36,0.15); color: var(--draw); }
+.tag-draw { background: rgba(251,191,36,0.15); color: var(--draw); }
+.tag-vibe { background: rgba(94,234,212,0.1); color: var(--accent); border: 1px solid rgba(94,234,212,0.2); }
+.methodology { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+.methodology p { margin-bottom: 0.5rem; }
+</style>
+<style>
+/* Rankings table */
+.rank-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.rank-table th { text-align: left; padding: 10px 12px; font-size: 0.8rem; color: var(--text-dim); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--border); }
+.rank-table td { padding: 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.rank-table tr:hover { background: var(--surface); }
+.rank-table .highlight { background: rgba(94,234,212,0.05); }
+.rank-table .highlight td { color: var(--text); font-weight: 500; }
+.score-bar { display: inline-block; height: 8px; border-radius: 4px; background: var(--accent); opacity: 0.7; vertical-align: middle; margin-left: 8px; }
+.score-num { font-family: var(--mono); font-weight: 600; font-size: 1rem; }
+.funding { font-family: var(--mono); font-size: 0.85rem; color: var(--text-dim); }
+
+/* Site cards */
+.site-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+.site-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+.site-card-header h3 { margin: 0; font-size: 1.15rem; color: var(--text); }
+.site-card .scores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 1rem 0; }
+.score-item { background: var(--surface2); padding: 8px 12px; border-radius: 8px; }
+.score-item .label { font-size: 0.7rem; color: var(--text-dim); font-family: var(--mono); text-transform: uppercase; }
+.score-item .value { font-size: 1.3rem; font-family: var(--mono); font-weight: 600; color: var(--text); }
+.critique-section { margin-top: 1rem; }
+.critique-section .good { border-left: 3px solid var(--win); padding-left: 12px; margin: 8px 0; }
+.critique-section .bad { border-left: 3px solid var(--loss); padding-left: 12px; margin: 8px 0; }
+.critique-section .fix { border-left: 3px solid var(--draw); padding-left: 12px; margin: 8px 0; }
+</style>
+<style>
+/* H2H table */
+.h2h-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.h2h-table th { text-align: left; padding: 8px 12px; font-size: 0.75rem; color: var(--text-dim); font-family: var(--mono); text-transform: uppercase; border-bottom: 2px solid var(--border); }
+.h2h-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+.h2h-table tr:hover { background: var(--surface); }
+
+/* Conclusion box */
+.conclusion { background: linear-gradient(135deg, rgba(94,234,212,0.08), rgba(244,114,182,0.05)); border: 1px solid rgba(94,234,212,0.2); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+.conclusion h2 { border: none; margin-top: 0; }
+.conclusion-item { margin: 1rem 0; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 8px; }
+.conclusion-item strong { color: var(--text); }
+
+/* Screenshot */
+.screenshot-link { display: inline-block; margin-top: 0.5rem; }
+.screenshot-link img { max-width: 100%; max-height: 300px; border-radius: 8px; border: 1px solid var(--border); object-fit: cover; object-position: top; }
+
+/* Correlation */
+.no-correlation { font-size: 1.4rem; font-weight: 700; color: var(--accent2); text-align: center; margin: 1.5rem 0; padding: 1.5rem; background: rgba(244,114,182,0.08); border-radius: 12px; border: 1px solid rgba(244,114,182,0.2); }
+</style>
+
+<div class="container">
+
+<h1>Seed-Stage Website Comparison</h1>
+<p class="subtitle">Do startup websites matter for fundraising? We blind-tested 9 recently-funded companies to find out.</p>
+<p style="color: var(--text-dim); font-size: 0.85rem; font-family: var(--mono);">April 5, 2026 &middot; Desktop Commander</p>
+
+<h2>The Questions</h2>
+<p>We wanted to answer three things:</p>
+<p><strong>1. Is our website "scrappy"?</strong> — How does desktopcommander.app compare to other seed-stage startups visually?</p>
+<p><strong>2. Do investors care about website polish at seed stage?</strong> — Is there any correlation between website quality and funding raised?</p>
+<p><strong>3. What can we learn from other seed startup websites?</strong> — What are the best sites doing that we're not?</p>
+
+<div class="methodology">
+<h3 style="margin-top:0;">Methodology</h3>
+<p><strong>Step 1 — Blind AI Critique:</strong> Puppeteer captured hero screenshots of all 9 sites at 1440px width. Each was sent to a separate Claude agent with NO company name or URL. Agents scored on 6 dimensions (1-10 scale).</p>
+<p><strong>Step 2 — Visual Design Review:</strong> A second pass evaluated pure visual aesthetics (typography, imagery, color, layout) to correct for AI bias toward content structure over design craft.</p>
+<p><strong>Step 3 — Head-to-Head:</strong> Desktop Commander was compared directly against each of the other 8 sites to identify specific strengths and weaknesses.</p>
+<p><strong>Combined score</strong> = average of AI blind score + visual design score. This balances content quality with visual polish.</p>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong>Limitation:</strong> AI models are better at reading text on screenshots than evaluating visual aesthetics. The visual design scores are a manual correction, not a second automated evaluation. A professional designer would likely rank these differently.</p>
+</div>
+
+<h2>Rankings</h2>
+<p>Combined score = average of AI blind evaluation + human visual design review. Sorted by combined score. DC highlighted.</p>
+
+<table class="rank-table">
+<thead><tr><th>#</th><th>Startup</th><th>AI</th><th>Visual</th><th>Combined</th><th>Vibe</th><th>Funding</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><a href="https://www.applied-atomics.com" target="_blank">Applied Atomics</a></td><td>7.2</td><td>8</td><td><span class="score-num">7.6</span><span class="score-bar" style="width:152px"></span></td><td><span class="tag tag-vibe">Premium</span></td><td class="funding">$8.3M seed</td></tr>
+<tr><td>2</td><td><a href="https://kilo.ai" target="_blank">Kilo Code</a></td><td>8.2</td><td>6</td><td><span class="score-num">7.1</span><span class="score-bar" style="width:142px"></span></td><td><span class="tag tag-vibe">Polished</span></td><td class="funding">$8M seed</td></tr>
+<tr><td>3</td><td><a href="https://sycamore.so" target="_blank">Sycamore</a></td><td>6.7</td><td>7</td><td><span class="score-num">6.9</span><span class="score-bar" style="width:138px"></span></td><td><span class="tag tag-vibe">Polished</span></td><td class="funding">$65M seed</td></tr>
+<tr><td>4</td><td><a href="https://www.agentmail.to" target="_blank">AgentMail</a></td><td>7.3</td><td>6.5</td><td><span class="score-num">6.9</span><span class="score-bar" style="width:138px"></span></td><td><span class="tag tag-vibe">Minimal</span></td><td class="funding">$6M seed</td></tr>
+<tr><td>5</td><td><a href="https://amilabs.xyz" target="_blank">AMI Labs</a></td><td>7.2</td><td>6.5</td><td><span class="score-num">6.9</span><span class="score-bar" style="width:138px"></span></td><td><span class="tag tag-vibe">Technical</span></td><td class="funding">$1.03B seed</td></tr>
+<tr><td>6</td><td><a href="https://rodeorodeorodeo.com" target="_blank">Rodeo</a></td><td>5.0</td><td>8</td><td><span class="score-num">6.5</span><span class="score-bar" style="width:130px"></span></td><td><span class="tag tag-vibe">Editorial</span></td><td class="funding">$8.5M seed</td></tr>
+<tr class="highlight"><td>7</td><td><a href="https://desktopcommander.app" target="_blank"><strong>Desktop Commander</strong></a></td><td>6.3</td><td>6.5</td><td><span class="score-num">6.4</span><span class="score-bar" style="width:128px;background:var(--accent2)"></span></td><td><span class="tag tag-vibe">Capable</span></td><td class="funding">$3M raising</td></tr>
+<tr><td>8</td><td><a href="https://www.rowspace.ai" target="_blank">Rowspace</a></td><td>6.3</td><td>6.0</td><td><span class="score-num">6.2</span><span class="score-bar" style="width:124px"></span></td><td><span class="tag tag-vibe">Minimal</span></td><td class="funding">$50M seed+A</td></tr>
+<tr><td>9</td><td><a href="https://aivar.tech" target="_blank">Aivar</a></td><td>5.7</td><td>5</td><td><span class="score-num">5.4</span><span class="score-bar" style="width:108px"></span></td><td><span class="tag tag-vibe">Consulting</span></td><td class="funding">$4.6M seed</td></tr>
+</tbody>
+</table>
+
+<div class="no-correlation">No obvious correlation between website quality and funding in this 9-site sample.<br><span style="font-size:0.85rem;font-weight:400;">AMI Labs raised $1.03B → scored 6.9. Rowspace raised $50M → scored 6.2. Applied Atomics raised $8.3M → topped the ranking at 7.6.</span></div>
+
+<h2>Human Visual Design Review</h2>
+<div class="methodology" style="border-color:rgba(244,114,182,0.3);">
+<p style="margin:0;"><strong style="color:var(--accent2);">Why this section exists:</strong> The AI blind scores above reward content structure and messaging clarity more than pure visual craft. This section describes what each hero section actually looks like and scores visual design only — typography, color, imagery, layout, distinctiveness. Scored separately from the AI evaluation.</p>
+</div>
+
+<div class="site-card">
+<h3 style="margin-top:0;">Visual Design Comparison — Pure Aesthetics Only</h3>
+<table class="rank-table">
+<thead><tr><th>#</th><th>Startup</th><th>Visual Design</th><th>AI Score</th><th>What you see</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Applied Atomics</td><td><span class="score-num">8</span></td><td>7.2</td><td>Bright, high-contrast layout with oversized typography and a large photoreal plant render/photo. Feels like a modern deep-tech brochure: lots of whitespace, strong grid, one clear CTA.</td></tr>
+<tr><td>2</td><td>Rodeo</td><td><span class="score-num">8</span></td><td>5.0</td><td>Bold editorial checkerboard grid, high-quality lifestyle photos, confident typography. Most distinctive layout. But you can't tell what it does.</td></tr>
+<tr><td>3</td><td>Sycamore</td><td><span class="score-num">7</span></td><td>6.7</td><td>Bright editorial layout: huge serif headline, supporting copy, and a large pixel-art map graphic below. Distinctive and premium, but the hero is mostly messaging (little proof in the first viewport).</td></tr>
+<tr class="highlight"><td>4</td><td><strong>Desktop Commander</strong></td><td><span class="score-num">6.5</span></td><td>6.3</td><td>Dark dev-tool hero with real product mockup (strongest product visual in the set), traction badges, and clear CTAs. Competent, not distinctive.</td></tr>
+<tr><td>5</td><td>AgentMail</td><td><span class="score-num">6.5</span></td><td>7.3</td><td>Dark dev-tool hero with a YC-backed badge, an API code snippet, and a live inbox panel. Clean and focused. Standard dark-mode API page aesthetic but with unusually strong hero-level credibility signals.</td></tr>
+<tr><td>6</td><td>AMI Labs</td><td><span class="score-num">6.5</span></td><td>7.2</td><td>Ultra-minimal white research-lab page with a huge serif headline and a mission statement card. Very sparse — no product UI or imagery in the hero.</td></tr>
+<tr><td>7</td><td>Kilo</td><td><span class="score-num">6</span></td><td>8.2</td><td>Dark background, centered headline, two CTA buttons. No product visual in the hero; below the fold the page introduces product imagery, but the first viewport is still visually sparse.</td></tr>
+<tr><td>8</td><td>Rowspace</td><td><span class="score-num">6.0</span></td><td>6.3</td><td>White split-screen enterprise hero: big headline on the left, faded document collage on the right. Clean and credible, but the right side reads more like texture than a persuasive product visual.</td></tr>
+<tr><td>9</td><td>Aivar</td><td><span class="score-num">5</span></td><td>5.7</td><td>Dark hero with a large gradient orb, one CTA, and a couple of stat callouts. The full-page capture then drops into a long black gap before the proof sections, which makes the whole page feel more agency-like and less product-led.</td></tr>
+</tbody>
+</table>
+<p style="margin-top:1rem;"><strong>Key finding:</strong> AI scores and visual design scores still disagree sharply. Kilo scored 8.2 from the AI (1st place) but only 6 on visual design — clean structure, weak hero imagery. Rodeo scored 5.0 from AI (last) but 8 on visual (tied 1st). Human review also moved AgentMail and AMI Labs up to 6.5 because their compositions are stronger than the first pass gave them credit for, while Rowspace dropped to 6.0 because the hero screenshot is cleaner than it is compelling.</p>
+</div>
+
+<h2>DC vs Each Competitor</h2>
+<p>What specifically beats Desktop Commander, and where DC has the advantage. Record: 4 wins, 2 losses, 2 coin flips.</p>
+
+<div class="methodology" style="border-color:rgba(251,191,36,0.3);margin-bottom:1rem;">
+<p style="margin:0;"><strong style="color:var(--draw);">Why H2H and rankings disagree:</strong> The combined ranking puts DC at #7, but direct comparison still rewards things the isolated ranking underweights: a real product mockup, visible traction, and a concrete developer-tool use case. That helps DC against vaguer or thinner sites, but AgentMail and Applied Atomics still edge it on first impression.</p>
+</div>
+
+<table class="h2h-table">
+<thead><tr><th>Opponent</th><th>Combined Result</th><th>Why they score higher / What beats DC</th><th>Why DC wins or ties / DC's advantage</th></tr></thead>
+<tbody>
+<tr><td><a href="https://aivar.tech" target="_blank">Aivar</a> <span class="funding">$4.6M</span></td>
+<td><span class="tag tag-win">DC WINS</span></td>
+<td>Aivar has customer logos (Niyo, Karix, Zepic) and named testimonials with photos. Their team section with founder headshots adds human credibility. Colorful gradient art elements add visual interest.</td>
+<td>DC is clearly a product company; Aivar reads as an IT consulting firm. DC has quantifiable traction (26K downloads, 5.4K stars) and shows its actual product. Aivar's gradient-heavy dark design is more visually active but less focused. DC wins on substance and clarity.</td></tr>
+
+<tr><td><a href="https://rodeorodeorodeo.com" target="_blank">Rodeo</a> <span class="funding">$8.5M</span></td>
+<td><span class="tag tag-win">DC WINS</span></td>
+<td>Rodeo has the most distinctive visual identity in the set — bold editorial checkerboard grid with high-quality lifestyle photography. Pure visual craft: 8 vs DC's 6.5.</td>
+<td>Rodeo's entire website is one screen. Zero scroll content, zero product explanation, zero traction metrics. You literally cannot tell what the app does. DC wins by having an actual website with an actual product and actual users.</td></tr>
+
+<tr><td><a href="https://kilo.ai" target="_blank">Kilo</a> <span class="funding">$8M</span></td>
+<td><span class="tag tag-draw">COIN FLIP</span></td>
+<td>Kilo is very focused and structured: a simple hero, then a “Meet Kilo Claw” section, then feature blocks in a straightforward layout with consistent spacing. Their content structure feels cleaner because they say fewer things.</td>
+<td>DC has a real product mockup (Kilo shows none) and explicit traction badges (weekly downloads + GitHub stars). Kilo does show GitHub stars in the top bar, but the hero is still mostly text + buttons with no product visual. Kilo looks "polished" because it does less, not because the visual design is richer.</td></tr>
+
+<tr><td><a href="https://www.agentmail.to" target="_blank">AgentMail</a> <span class="funding">$6M</span></td>
+<td><span class="tag tag-loss">DC LOSES</span></td>
+<td>AgentMail has the sharper hero package: top funding bar, YC badge, instantly legible "Email Inboxes for AI Agents" positioning, and both a code panel and live inbox panel in the first viewport. It communicates category, credibility, and product proof faster than DC.</td>
+<td>DC still has stronger visible traction (26K downloads, 5.4K stars) and a more literal product UI mockup. But the screenshot is partially obscured by the cookie modal, while AgentMail lands its message more cleanly and with stronger hero-level trust packaging.</td></tr>
+
+<tr><td><a href="https://sycamore.so" target="_blank">Sycamore</a> <span class="funding">$65M</span></td>
+<td><span class="tag tag-draw">COIN FLIP</span></td>
+<td>Sycamore has a more premium editorial feel — bright whitespace, huge serif headline, and a distinctive pixel-art map graphic. The visual polish is slightly higher (7 vs 6.5). It projects "well-funded platform play."</td>
+<td>Sycamore’s hero has investor proof (raise tag + investor logo row), but no traction metrics and no product UI in the first viewport. “Trusted agent operating system for the enterprise” is still mostly positioning. DC tells you exactly what it does, shows the actual app, and includes usage metrics. Sycamore likely raised $65M primarily on team pedigree and thesis, not on the website.</td></tr>
+
+<tr><td><a href="https://www.applied-atomics.com" target="_blank">Applied Atomics</a> <span class="funding">$8.3M</span></td>
+<td><span class="tag tag-loss">DC LOSES</span></td>
+<td>Applied Atomics has oversized typography and a large photoreal plant render/photo — the strongest "deep-tech brochure" execution in the set. Their visual identity is memorable and distinctive. Visual design: 8 vs DC's 6.5. This is a clear gap.</td>
+<td>DC has better quantifiable trust signals (downloads, stars). But AA is in a different category (nuclear energy with dramatic physical infrastructure to photograph) — this comparison is somewhat apples-to-oranges. AA's visual advantage comes from having physical products to photograph, which software companies inherently lack.</td></tr>
+
+<tr><td><a href="https://amilabs.xyz" target="_blank">AMI Labs</a> <span class="funding">$1.03B</span></td>
+<td><span class="tag tag-win">DC WINS</span></td>
+<td>AMI Labs has confident extreme minimalism — ultra-white research-lab aesthetic, big serif headline, contact/location metadata, and a mission statement card. It signals pedigree, but provides little concrete product proof in the hero.</td>
+<td>DC has a product mockup (AMI shows none in the hero). DC has visible traction metrics. DC's site communicates more about what the product does and who uses it. AMI Labs raised $1.03B on Yann LeCun's reputation, not on their website — a luxury most startups don't have.</td></tr>
+
+<tr><td><a href="https://www.rowspace.ai" target="_blank">Rowspace</a> <span class="funding">$50M</span></td>
+<td><span class="tag tag-win">DC WINS</span></td>
+<td>Rowspace has a clean enterprise split-screen hero with a faint document collage on the right and typography that feels slightly more refined than DC's.</td>
+<td>Rowspace has a credible hero and a $50M announcement bar, but there’s still no visible customer proof in the first viewport — no logos, testimonials, or traction metrics. DC has 26K downloads, 5.4K stars, and a more explicit product demonstration, so it still wins on substance despite Rowspace’s cleaner typography.</td></tr>
+</tbody>
+</table>
+
+<p><strong>Record: 4 wins, 2 losses, 2 coin flips.</strong> Sites that rank above DC do so with cleaner information architecture (Kilo, AgentMail) or a more premium visual feel (Sycamore, Applied Atomics). In direct comparison, DC's real product mockup and visible traction still make it competitive against much of the set, but not enough to beat every cleaner or better-packaged hero.</p>
+
+<div class="methodology" style="border-color:rgba(94,234,212,0.3);margin-top:1rem;">
+<p style="margin:0;"><strong style="color:var(--accent);">Key insight:</strong> The three largest raises in this set (AMI Labs $1.03B, Sycamore $65M, Rowspace $50M) are not the three strongest websites in the sample. Funding here is clearly driven by pedigree, market, and traction outside the homepage — not by a simple "better site = bigger round" rule.</p>
+</div>
+
+<h2>Detailed Blind Critiques</h2>
+<p>Each site was evaluated independently with no knowledge of company identity.</p>
+
+<!-- DC -->
+<div class="site-card" style="border-color: rgba(94,234,212,0.3);">
+<div class="site-card-header">
+<h3>Desktop Commander <span style="font-weight:400;color:var(--text-dim)">— desktopcommander.app</span></h3>
+<div><span class="tag tag-vibe">Capable</span> <span class="funding">$3M raising</span></div>
+</div>
+<a href="https://desktopcommander.app" target="_blank" class="screenshot-link"><img src="../screenshots/desktopcommander/hero.png" alt="DC hero"></a>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong style="color:var(--text);">What you see:</strong> Dark background. Left: “AI that executes” headline, short subtitle, primary CTA “Download Beta” (blue) + secondary link, two metric badges (Weekly downloads 26K+, GitHub stars 5.4k). Right: large real product UI mockup (window chrome, chat interface, file browser). Note: screenshot includes a Cookiebot consent modal covering the lower portion of the page.</p>
+<div class="scores-grid">
+<div class="score-item"><div class="label">First Impression</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Visual Hierarchy</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Trust Signals</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Design Polish (AI)</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Visual Design ✎</div><div class="value" style="color:var(--loss)">6</div></div>
+<div class="score-item"><div class="label">CTA Clarity</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Investor Signal</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Combined</div><div class="value" style="color:var(--accent)">6.4</div></div>
+</div>
+<div class="critique-section">
+<div class="good"><p><strong>What works:</strong> Real substance — social proof elements demonstrate genuine traction, product demo screenshots show the tool in action rather than abstract marketing. The dark theme is consistent and appropriate for a developer-focused product.</p></div>
+<div class="bad"><p><strong>What's weak:</strong> Some trust signals are present in the hero (downloads/stars), but the screenshot’s cookie modal obscures the lower viewport and deeper proof (testimonials/press) still sits below the fold. Typography weights and spacing feel slightly inconsistent. Feature sections are list-heavy rather than benefit-driven.</p></div>
+<div class="fix"><p><strong>Biggest fix:</strong> Move the single most impressive trust signal into the hero section itself — user count, a quote from a known developer, or a recognizable logo — visible before any scroll.</p></div>
+</div>
+</div>
+
+<!-- Kilo -->
+<div class="site-card">
+<div class="site-card-header">
+<h3>Kilo Code <span style="font-weight:400;color:var(--text-dim)">— kilo.ai</span></h3>
+<div><span class="tag tag-vibe">Polished</span> <span class="funding">$8M seed</span></div>
+</div>
+<a href="https://kilo.ai" target="_blank" class="screenshot-link"><img src="../screenshots/kilo/hero.png" alt="Kilo hero"></a>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong style="color:var(--text);">What you see:</strong> Dark background with centered monospace headline “AI for every project” (highlight on “project”) and a short subtitle. Two large filled CTAs (yellow “Get your Assistant” + blue “Start Coding”), plus a small “Powered by OpenClaw” line and a top-nav area showing GitHub stars + Sign in/Sign up. No product visual in the hero; below the fold the page introduces a phone/product image and feature sections.</p>
+<div class="scores-grid">
+<div class="score-item"><div class="label">First Impression</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Visual Hierarchy</div><div class="value">9</div></div>
+<div class="score-item"><div class="label">Trust Signals</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Design Polish (AI)</div><div class="value">9</div></div>
+<div class="score-item"><div class="label">Visual Design ✎</div><div class="value" style="color:var(--loss)">6</div></div>
+<div class="score-item"><div class="label">CTA Clarity</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Investor Signal</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Combined</div><div class="value" style="color:var(--accent)">7.1</div></div>
+</div>
+<div class="critique-section">
+<div class="good"><p><strong>What works:</strong> Genuine product depth with feature sections, clear pricing, and UI previews. Design consistency holds across the entire scroll — rare at seed stage. Information architecture follows a logical investor narrative: problem → solution → features → proof → price.</p></div>
+<div class="bad"><p><strong>What's weak:</strong> Trust signals (logos, testimonials, metrics) are not prominent enough. Some sections feel slightly template-adjacent despite strong visual execution.</p></div>
+<div class="fix"><p><strong>Biggest fix:</strong> Add a "trusted by X teams" social proof band with recognizable company logos — the only thing separating this from a 9/10.</p></div>
+</div>
+</div>
+
+<!-- AgentMail -->
+<div class="site-card">
+<div class="site-card-header">
+<h3>AgentMail <span style="font-weight:400;color:var(--text-dim)">— agentmail.to</span></h3>
+<div><span class="tag tag-vibe">Minimal</span> <span class="funding">$6M seed</span></div>
+</div>
+<a href="https://www.agentmail.to" target="_blank" class="screenshot-link"><img src="../screenshots/agentmail/hero.png" alt="AgentMail hero"></a>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong style="color:var(--text);">What you see:</strong> Dark background with a big “Email Inboxes for AI Agents” headline and short descriptor. “Backed by Y Combinator” badge and a top announcement bar about raising $6M. Left: CTAs (“Start for free”, “Docs”). Right: a tabbed code snippet panel plus a live inbox panel, so the hero shows both API syntax and the resulting mailbox UI.</p>
+<div class="scores-grid">
+<div class="score-item"><div class="label">First Impression</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Visual Hierarchy</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Trust Signals</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Design Polish (AI)</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Visual Design ✎</div><div class="value" style="color:var(--accent)">6.5</div></div>
+<div class="score-item"><div class="label">CTA Clarity</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Investor Signal</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Combined</div><div class="value" style="color:var(--accent)">6.9</div></div>
+</div>
+<div class="critique-section">
+<div class="good"><p><strong>What works:</strong> Coherent product story from hero to pricing. Customer logo bar signals the product is in use. Open pricing communicates confidence.</p></div>
+<div class="bad"><p><strong>What's weak:</strong> Lacks distinctive visual identity — the dark+monospace aesthetic is the default for any 2024-2025 dev tool. Feature copy is functional but generic.</p></div>
+<div class="fix"><p><strong>Biggest fix:</strong> Add one bold proof point — e.g., "Powering 50M+ agent emails/month" — to turn the logo bar from passive association into active validation.</p></div>
+</div>
+</div>
+
+<!-- Applied Atomics -->
+<div class="site-card">
+<div class="site-card-header">
+<h3>Applied Atomics <span style="font-weight:400;color:var(--text-dim)">— applied-atomics.com</span></h3>
+<div><span class="tag tag-vibe">Premium</span> <span class="funding">$8.3M seed</span></div>
+</div>
+<a href="https://www.applied-atomics.com" target="_blank" class="screenshot-link"><img src="../screenshots/applied-atomics/hero.png" alt="Applied Atomics hero"></a>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong style="color:var(--text);">What you see:</strong> Light background with oversized typography (“Pragmatic Power. Proven Technology.”). Left: stacked subhead lines + short paragraph describing nuclear fission plants and a “Let’s Talk” link. Right: large photoreal plant render/photo. Clean, brochure-like deep-tech aesthetic with lots of whitespace and a prominent “Contact” button in the top nav.</p>
+<div class="scores-grid">
+<div class="score-item"><div class="label">First Impression</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Visual Hierarchy</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Trust Signals</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Design Polish (AI)</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Visual Design ✎</div><div class="value" style="color:var(--accent)">8</div></div>
+<div class="score-item"><div class="label">CTA Clarity</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Investor Signal</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Combined</div><div class="value" style="color:var(--accent)">7.6</div></div>
+</div>
+<div class="critique-section">
+<div class="good"><p><strong>What works:</strong> Premium deep-tech site with high-quality technical imagery and a consistent visual language that communicates serious engineering credibility. Design system is cohesive throughout.</p></div>
+<div class="bad"><p><strong>What's weak:</strong> Hero doesn't immediately tell you what the company does. Page reads more like a brochure than a conversion page. No single dominant CTA.</p></div>
+<div class="fix"><p><strong>Biggest fix:</strong> Add a bold plain-English one-liner in the hero and a single high-contrast CTA that follows the user down the page.</p></div>
+</div>
+</div>
+
+<!-- AMI Labs -->
+<div class="site-card">
+<div class="site-card-header">
+<h3>AMI Labs <span style="font-weight:400;color:var(--text-dim)">— amilabs.xyz</span></h3>
+<div><span class="tag tag-vibe">Technical</span> <span class="funding">$1.03B seed</span></div>
+</div>
+<a href="https://amilabs.xyz" target="_blank" class="screenshot-link"><img src="../screenshots/amilabs/hero.png" alt="AMI Labs hero"></a>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong style="color:var(--text);">What you see:</strong> Ultra-minimal white page: centered logo + large serif headline (“Real World. Real Intelligence.”), small pill-style info blocks (Contact/Hiring/Locations), and a centered mission statement card. No product UI or imagery in the hero — it reads like a research lab / manifesto page.</p>
+<div class="scores-grid">
+<div class="score-item"><div class="label">First Impression</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Visual Hierarchy</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Trust Signals</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Design Polish (AI)</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Visual Design ✎</div><div class="value" style="color:var(--accent)">6.5</div></div>
+<div class="score-item"><div class="label">CTA Clarity</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Investor Signal</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Combined</div><div class="value" style="color:var(--accent)">6.9</div></div>
+</div>
+<div class="critique-section">
+<div class="good"><p><strong>What works:</strong> The extreme minimalism feels intentional rather than cheap: oversized logo, serif headline, and the mission-statement card give it a research-lab / manifesto feel. Contact, hiring, and location details make the page feel real even though it is sparse.</p></div>
+<div class="bad"><p><strong>What's weak:</strong> The page offers almost no concrete product proof in the hero — no UI, no customers, no visual explanation of what AMI actually ships. It reads more like a memo than a startup homepage.</p></div>
+<div class="fix"><p><strong>Biggest fix:</strong> Add one clear product/use-case proof block above the fold — a demo visual, customer example, or even a concise "what we build" module.</p></div>
+</div>
+</div>
+
+<!-- Sycamore -->
+<div class="site-card">
+<div class="site-card-header">
+<h3>Sycamore <span style="font-weight:400;color:var(--text-dim)">— sycamore.so</span></h3>
+<div><span class="tag tag-vibe">Polished</span> <span class="funding">$65M seed</span></div>
+</div>
+<a href="https://sycamore.so" target="_blank" class="screenshot-link"><img src="../screenshots/sycamore/hero.png" alt="Sycamore hero"></a>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong style="color:var(--text);">What you see:</strong> Bright/white editorial layout: huge serif headline (“The trusted agent operating system for the enterprise.”) with supporting copy, minimal nav and a “human/agent” toggle, and a large pixel-art map graphic spanning the width below. Very premium-feeling typography and layout, but little concrete proof in the first viewport (and a cookie banner overlays the bottom).</p>
+<div class="scores-grid">
+<div class="score-item"><div class="label">First Impression</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Visual Hierarchy</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Trust Signals</div><div class="value">5</div></div>
+<div class="score-item"><div class="label">Design Polish (AI)</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Visual Design ✎</div><div class="value" style="color:var(--loss)">7</div></div>
+<div class="score-item"><div class="label">CTA Clarity</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Investor Signal</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Combined</div><div class="value" style="color:var(--accent)">6.9</div></div>
+</div>
+<div class="critique-section">
+<div class="good"><p><strong>What works:</strong> The light editorial layout is distinctive: huge serif typography, a memorable pixel-art landscape, and generous whitespace give Sycamore a premium feel. The deeper page also shows more structure and supporting sections than the hero alone suggests.</p></div>
+<div class="bad"><p><strong>What's weak:</strong> The hero is still abstract. Outside the "$65 million" pill, there is little concrete proof of product reality in the first viewport, and the cookie banner obscures part of the illustration.</p></div>
+<div class="fix"><p><strong>Biggest fix:</strong> Move concrete customer or product proof higher — a recognizable logo strip, usage metric, or product visual should appear before the first scroll.</p></div>
+</div>
+</div>
+
+<!-- Rowspace -->
+<div class="site-card">
+<div class="site-card-header">
+<h3>Rowspace <span style="font-weight:400;color:var(--text-dim)">— rowspace.ai</span></h3>
+<div><span class="tag tag-vibe">Minimal</span> <span class="funding">$50M seed+A</span></div>
+</div>
+<a href="https://www.rowspace.ai" target="_blank" class="screenshot-link"><img src="../screenshots/rowspace/hero.png" alt="Rowspace hero"></a>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong style="color:var(--text);">What you see:</strong> White split hero: left huge headline (“You built your firm’s edge. Compound it with AI.”) + short paragraph, right a dense document/screenshot panel. Top announcement bar about $50M funding; bottom full-width blue CTA bar (“Request a demo”). Clean enterprise aesthetic and credible, but not visually distinctive.</p>
+<div class="scores-grid">
+<div class="score-item"><div class="label">First Impression</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Visual Hierarchy</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Trust Signals</div><div class="value">5</div></div>
+<div class="score-item"><div class="label">Design Polish (AI)</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Visual Design ✎</div><div class="value" style="color:var(--loss)">6.0</div></div>
+<div class="score-item"><div class="label">CTA Clarity</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Investor Signal</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Combined</div><div class="value" style="color:var(--accent)">6.2</div></div>
+</div>
+<div class="critique-section">
+<div class="good"><p><strong>What works:</strong> The split-screen composition is clean and enterprise-ready. The faint document collage on the right instantly cues the finance/legal domain, and the overall page keeps a disciplined, minimal tone.</p></div>
+<div class="bad"><p><strong>What's weak:</strong> The hero is almost too sparse — the right panel reads more like texture than product proof, and there are still no customer logos, testimonials, or traction metrics in the first viewport. The cookie banner also competes with the CTA area.</p></div>
+<div class="fix"><p><strong>Biggest fix:</strong> Replace the abstract document texture with a clearer product screenshot or customer proof block above the fold.</p></div>
+</div>
+</div>
+
+<!-- Aivar -->
+<div class="site-card">
+<div class="site-card-header">
+<h3>Aivar <span style="font-weight:400;color:var(--text-dim)">— aivar.tech</span></h3>
+<div><span class="tag tag-vibe">Consulting</span> <span class="funding">$4.6M seed</span></div>
+</div>
+<a href="https://aivar.tech" target="_blank" class="screenshot-link"><img src="../screenshots/aivar/hero.png" alt="Aivar hero"></a>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong style="color:var(--text);">What you see:</strong> Dark hero with a large centered gradient orb/mesh behind the headline, one CTA ("Schedule a Consultation"), and two stat callouts (100+ customers, 7+ industries). In the full-page capture, a long black gap separates the hero from the logo/testimonial/team sections below, which makes the page feel animation-dependent and agency-like rather than product-led.</p>
+<div class="scores-grid">
+<div class="score-item"><div class="label">First Impression</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Visual Hierarchy</div><div class="value">5</div></div>
+<div class="score-item"><div class="label">Trust Signals</div><div class="value">7</div></div>
+<div class="score-item"><div class="label">Design Polish (AI)</div><div class="value">5</div></div>
+<div class="score-item"><div class="label">Visual Design ✎</div><div class="value" style="color:var(--loss)">5</div></div>
+<div class="score-item"><div class="label">CTA Clarity</div><div class="value">6</div></div>
+<div class="score-item"><div class="label">Investor Signal</div><div class="value">5</div></div>
+<div class="score-item"><div class="label">Combined</div><div class="value" style="color:var(--accent)">5.4</div></div>
+</div>
+<div class="critique-section">
+<div class="good"><p><strong>What works:</strong> Solid trust signals — real customer logos (Niyo, Karix, Zepic) plus named testimonials. Team section with founder photos adds credibility. Footer signals global presence.</p></div>
+<div class="bad"><p><strong>What's weak:</strong> The dark gradient-heavy design creates large empty-feeling areas between content sections. Overall aesthetic is generic "AI agency dark mode" — could be any of a thousand similar firms. The value proposition doesn't land quickly enough in the hero.</p></div>
+<div class="fix"><p><strong>Biggest fix:</strong> Tighten the hero spacing and make the value proposition immediately clear — right now the dark gradient art dominates over the message.</p></div>
+</div>
+</div>
+
+<!-- Rodeo -->
+<div class="site-card">
+<div class="site-card-header">
+<h3>Rodeo <span style="font-weight:400;color:var(--text-dim)">— rodeorodeorodeo.com</span></h3>
+<div><span class="tag tag-vibe">Editorial</span> <span class="funding">$8.5M seed</span></div>
+</div>
+<a href="https://rodeorodeorodeo.com" target="_blank" class="screenshot-link"><img src="../screenshots/rodeo/hero.png" alt="Rodeo hero"></a>
+<p style="color:var(--text-dim);font-size:0.85rem;margin-top:0.5rem;"><strong style="color:var(--text);">What you see:</strong> Cream background with bold checkerboard grid of high-quality lifestyle photos and numbers. Confident headline typography. The most visually distinctive site in the set — you'd remember this. However: the entire website IS this one screen. No scroll, no features, no explanation of what the product does. Beautiful design, zero substance.</p>
+<div class="scores-grid">
+<div class="score-item"><div class="label">First Impression</div><div class="value">8</div></div>
+<div class="score-item"><div class="label">Visual Hierarchy</div><div class="value">4</div></div>
+<div class="score-item"><div class="label">Trust Signals</div><div class="value">1</div></div>
+<div class="score-item"><div class="label">Design Polish (AI)</div><div class="value">9</div></div>
+<div class="score-item"><div class="label">Visual Design ✎</div><div class="value" style="color:var(--loss)">8</div></div>
+<div class="score-item"><div class="label">CTA Clarity</div><div class="value">3</div></div>
+<div class="score-item"><div class="label">Investor Signal</div><div class="value">5</div></div>
+<div class="score-item"><div class="label">Combined</div><div class="value" style="color:var(--accent)">6.5</div></div>
+</div>
+<div class="critique-section">
+<div class="good"><p><strong>What works:</strong> Genuinely distinctive visual identity — bold editorial checkerboard grid with lifestyle photography. Typography is confident. Would not look out of place next to a well-funded consumer brand.</p></div>
+<div class="bad"><p><strong>What's weak:</strong> Entire website is a single screen with zero scroll content. Product is completely opaque. Only CTA is "Download app to join waitlist" — signals pre-launch with no traction.</p></div>
+<div class="fix"><p><strong>Biggest fix:</strong> Add a one-line product descriptor that explains what the app actually does.</p></div>
+</div>
+</div>
+
+<div class="conclusion">
+<h2>Answers</h2>
+
+<div class="conclusion-item">
+<strong>1. Is our website scrappy? → No.</strong>
+<p>Combined score 6.4 out of 10. DC ranks 7th of 9 on isolated scores, ahead of Rowspace (6.2) and Aivar (5.4), and the blind evaluator's vibe word was "Capable," not "scrappy." It does still win or tie 6 of 8 direct comparisons because it is one of the few sites that shows both a real product UI mockup and visible traction metrics in the hero. The bigger issue is polish and packaging, not legitimacy.</p>
+</div>
+
+<div class="conclusion-item">
+<strong>2. Do investors care about website polish at seed? → No clear correlation in this sample.</strong>
+<p>AMI Labs raised $1.03B with a combined 6.9. Sycamore raised $65M with a 6.9. Rowspace raised $50M but only scored 6.2. Meanwhile Applied Atomics topped the ranking at 7.6 on only an $8.3M seed. The sample is small, but it does show that funding tracks far more than homepage craft alone — pedigree, traction, and market story matter at least as much.</p>
+</div>
+
+<div class="conclusion-item">
+<strong>3. What can we learn from other seed startup websites?</strong>
+<p>Four concrete lessons from the comparison:</p>
+<p><strong>Information architecture often mattered more than ornamental polish.</strong> Kilo (ranked #2 combined) says fewer things more cleanly, and AgentMail packages its proof tighter than DC. DC has more substance than several prettier competitors, but a longer, less focused scroll. Editing content down is likely higher ROI than a cosmetic redesign.</p>
+<p><strong>Trust signals belong above the fold.</strong> Many critiques — including DC’s — flagged “proof buried below the fold” as a weakness. DC does show downloads/stars in the hero, but several competitors show little/no proof in the first viewport. The single most impactful change for most sites here: move your best metric, testimonial, or logo into the hero.</p>
+<p><strong>Distinctive imagery separates the top from the middle.</strong> Applied Atomics (#1) won on oversized typography plus a strong plant photo; Rodeo (#6) won visual attention with its editorial checkerboard; Sycamore stood out with a light serif/pixel-art composition. The dark-mode developer-tool sites converge toward a similar look much faster. DC's product mockup is one of the strongest actual product visuals in the set, but it still does not create the instant atmosphere that those more distinctive heroes do.</p>
+<p><strong>AI evaluation is unreliable for visual design.</strong> Kilo scored 8.2 from the AI (1st) but only 6 on visual design — text and buttons dominate the hero. Rodeo scored 5.0 from AI (last) but 8 on visual (tied 1st). AgentMail and AMI Labs also improved once the review focused on composition rather than just above-the-fold product proof. Any future comparison should use human designers for visual scoring.</p>
+</div>
+
+<div class="conclusion-item">
+<strong>Recommended action</strong>
+<p>Don’t start with a cosmetic redesign. First, spend 1–2 days on content restructuring: (a) move the best trust signal into the hero section; (b) cut the number of scroll sections — fewer things, cleaner flow; (c) tighten the headline/subheadline so the seed narrative lands faster. If you do bring design help in, aim it at information architecture + proof placement, not just surface-level polish.</p>
+</div>
+
+</div>
+
+<p style="text-align:center;color:var(--text-dim);margin:3rem 0;font-family:var(--mono);font-size:0.8rem;">Research conducted April 5, 2026. All AI scores from blind evaluation (Claude). Visual design scores from manual review. Screenshots captured via Puppeteer at 1440px viewport.<br><a href="https://github.com/desktop-commander/blind-website-comparison">Source data on GitHub</a></p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "scores": {
+    "first_impression": 7,
+    "visual_hierarchy": 7,
+    "trust_signals": 7,
+    "design_polish": 8,
+    "cta_clarity": 7,
+    "investor_signal": 7
+  },
+  "average_score": 7.2,
+  "critique": {
+    "works_well": "The dark, high-contrast aesthetic reads as technical and modern — not a template. Visual consistency holds all the way down the page without collapsing mid-scroll, which signals an execution-capable team. Trust signals (logos, use cases, structured feature sections) are present and add real credibility when you get past the fold.",
+    "looks_weak": "The trust signals are buried below the fold — the hero gives no immediate proof of traction, making the first 30 seconds feel weaker than the actual product deserves. The CTA lacks urgency or differentiation; it reads as generic without a compelling reason to act immediately.",
+    "single_biggest_improvement": "Pull one or two recognizable customer logos up into the hero section — the credibility is there, it just needs to be visible within the first 5 seconds."
+  },
+  "meeting_score": 7,
+  "one_word_vibe": "Technical"
+}

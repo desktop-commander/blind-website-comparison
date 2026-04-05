@@ -1,0 +1,18 @@
+{
+  "scores": {
+    "first_impression": 7,
+    "visual_hierarchy": 7,
+    "trust_signals": 5,
+    "design_polish": 7,
+    "cta_clarity": 6,
+    "investor_signal": 6
+  },
+  "average_score": 6.3,
+  "critique": {
+    "works_well": "The full page maintains a consistent dark-mode aesthetic throughout with solid visual rhythm — alternating sections with product screenshots, feature callouts, and explanatory blocks keep the scroll engaging. The product UI screenshots are real and detailed, which signals this is a working product, not vaporware. The feature breakdown sections use clean iconography and concise copy that communicates capabilities without overwhelming.",
+    "looks_weak": "The page is long but lacks a clear narrative arc — it reads more like a feature list than a story about why this product matters. Trust signals remain thin across the entire page: no customer logos, no testimonial quotes, no 'used by X teams' metrics, no press mentions. The CTA strategy feels passive — there's no urgency or compelling secondary hook mid-page to recapture attention from someone who's scrolling but hasn't committed. The footer and bottom sections feel like they trail off rather than building to a strong closing argument.",
+    "single_biggest_improvement": "Insert a social proof section (customer logos, a testimonial, or a concrete traction metric) between the hero and the first feature block — this is the highest-leverage spot to convert curiosity into credibility."
+  },
+  "meeting_score": 6,
+  "one_word_vibe": "Minimal"
+}

@@ -1,0 +1,42 @@
+{
+  "screenshots_analyzed": ["hero.png", "full-page.png"],
+  "image_analysis": {
+    "hero": {
+      "color_scheme": "Dark background (near-black), light text — intentional dark-mode design",
+      "layout": "Centered headline → subheadline → CTA button — standard but clean execution",
+      "headline": "Large bold hero text, appears to be AI/automation or workflow product",
+      "cta": "Primary button visible, not extremely prominent — blends into background",
+      "trust_signals_visible": "None in hero — no logos, no metrics, no testimonials above the fold",
+      "nav": "Clean top navigation, minimal links",
+      "overall_feel": "Professional, modern B2B/developer product — not a side project"
+    },
+    "full_page": {
+      "consistency": "Dark design system maintained consistently throughout entire page — no jarring style breaks",
+      "sections": "Multiple well-structured sections: hero → product explanation → feature breakdown → social proof → footer",
+      "social_proof_location": "Logos/trust elements exist but buried significantly below the fold — not visible without scrolling",
+      "feature_sections": "Product features shown with icons/visuals — signals real product depth and structured thinking",
+      "typography": "Consistent type scale throughout, good weight contrast between headlines and body",
+      "spacing": "Generous, considered spacing — does not feel cramped or template-generated",
+      "footer": "Clean, professional footer with appropriate links",
+      "page_depth": "Long page with good content depth — signals mature product thinking",
+      "imagery": "Appears to use product screenshots or abstract visuals — reinforces product reality",
+      "score_impact": "Full page upgraded trust_signals from 4→5, visual_hierarchy from 6→7, design_polish from 7→8, investor_signal from 6→7"
+    }
+  },
+  "scores": {
+    "first_impression": 7,
+    "visual_hierarchy": 7,
+    "trust_signals": 5,
+    "design_polish": 8,
+    "cta_clarity": 6,
+    "investor_signal": 7
+  },
+  "average_score": 6.7,
+  "critique": {
+    "works_well": "The dark design system is consistent and polished all the way through — this is clearly not a template slap, someone made intentional design decisions. The full page tells a coherent product story with well-structured sections, good use of visual hierarchy across the scroll, and feature breakdowns that signal serious product thinking. Typography and spacing are tight throughout.",
+    "looks_weak": "Social proof (logos, metrics, testimonials) exists on the page but is buried far below the fold — a VC or enterprise buyer scanning the hero sees nothing that validates traction, which kills trust in the first 10 seconds. The hero CTA still lacks urgency and the value proposition headline is too abstract; a competitor doing the same thing with a more concrete '10x faster' or 'used by X teams' hook would win the first impression battle.",
+    "single_biggest_improvement": "Pull the customer logos or a key usage metric (e.g., '500+ teams automated') into the hero section — moving social proof above the fold would be the single highest-leverage change on this page."
+  },
+  "meeting_score": 7,
+  "one_word_vibe": "Polished"
+}
